@@ -12,7 +12,8 @@
         <h1>My Library</h1>
         <button class="new-book-button">New book</button>
     </div>
-    <dialog>
+
+    <dialog closedby="any">
         <form action="" method="dialog">
             <div>
                 <label for="title">Title:</label>
@@ -22,8 +23,20 @@
                 <label for="author">Author:</label>
                 <input type="text" id="author" name="author">
             </div>
+            <div>
+                <label for="nbOfPages">Number of pages:</label>
+                <input type="number" id="nbOfPages" name="nbOfPages" min="1">
+            </div>
+            <div>
+                <label for="beenRead">Have you read it ?</label>
+                <input type="checkbox" name="beenRead" id="beenRead" checked>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
         </form>
     </dialog>
+
     <div class="library-container">
        
     </div>

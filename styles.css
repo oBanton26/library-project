@@ -60,9 +60,21 @@ h1 {
 }
 
 dialog {
-    margin: 100px 250px
+    margin: 100px 250px;
+    border-radius: 10px;
 }
 
 form {
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form button {
+    background-color: orange;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 15px;
 }
