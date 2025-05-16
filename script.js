@@ -38,3 +38,9 @@ function displayLibrary () {
         libraryContainer.appendChild(bookCard);
     }
 }
+
+const newBookButton = document.querySelector(".new-book-button")
+const dialog = document.querySelector("dialog");
+newBookButton.addEventListener("click", function(){
+    dialog.showModal();
+});
