@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: beige;
+    padding: 30px;
+}
+
+.library-container {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+span {
+    font-weight: bold;
+}
