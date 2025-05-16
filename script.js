@@ -1,14 +1,15 @@
 const myLibrary = [];
 
-function Book (title, author, nbOfPages) {
+function Book (title, author, nbOfPages, beenRead) {
     this.title = title;
     this.author = author;
     this.nbOfPages = nbOfPages;
+    this.beenRead = beenRead;
     this.id = crypto.randomUUID();
 };
 
-function addBookToLibrary (title, author, nbOfPages) {
-    let addedBook = new Book(title, author, nbOfPages);
+function addBookToLibrary (title, author, nbOfPages, beenRead) {
+    let addedBook = new Book(title, author, nbOfPages, beenRead);
     myLibrary.push(addedBook);
 };
 
@@ -29,6 +30,10 @@ function displayLibrary () {
         const nbOfPagesDiv = document.createElement("div");
         nbOfPagesDiv.textContent = `Number of Pages: ${book.nbOfPages}`;
         bookCard.appendChild(nbOfPagesDiv);
+
+        const beenReadDiv = document.createElement("div");
+        beenReadDiv.textContent = `This book has ${book.beenRead?"been read":"not been read"}`;
+        bookCard.appendChild(beenReadDiv);
 
         libraryContainer.appendChild(bookCard);
     }
