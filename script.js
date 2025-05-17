@@ -13,8 +13,10 @@ function addBookToLibrary (title, author, nbOfPages, beenRead) {
     myLibrary.push(addedBook);
 };
 
+const libraryContainer = document.querySelector(".library-container");
+
 function displayLibrary () {
-    const libraryContainer = document.querySelector(".library-container");
+    cleanDisplay();
     for (let book of myLibrary) {
         const bookCard = document.createElement("div");
         bookCard.setAttribute("class", "card");
@@ -39,8 +41,29 @@ function displayLibrary () {
     }
 }
 
+function cleanDisplay () {
+    libraryContainer.textContent = "";
+}
+
 const newBookButton = document.querySelector(".new-book-button")
 const dialog = document.querySelector("dialog");
 newBookButton.addEventListener("click", function(){
     dialog.showModal();
+});
+
+const addBookButton = document.querySelector("form button");
+addBookButton.addEventListener("click", ()=>{
+    dialog.close();
+})
+
+const newBookForm = document.querySelector("form");
+newBookForm.addEventListener("submit", e=>{
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    let titleInputed = formData.get("title");
+    let authorInputed = formData.get("author");
+    let nbOfPagesInputed = formData.get("nbOfPages");
+    let beenReadInputed = formData.get("beenRead");
+    addBookToLibrary(titleInputed, authorInputed, nbOfPagesInputed, beenReadInputed);
+    displayLibrary();
 });
