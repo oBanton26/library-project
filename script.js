@@ -8,6 +8,10 @@ function Book (title, author, nbOfPages, beenRead) {
     this.id = crypto.randomUUID();
 };
 
+Book.prototype.toggleBeenRead = function() {
+    this.beenRead = this.beenRead? false : true;
+};
+
 function addBookToLibrary (title, author, nbOfPages, beenRead) {
     let addedBook = new Book(title, author, nbOfPages, beenRead);
     myLibrary.push(addedBook);
@@ -38,6 +42,14 @@ function displayLibrary () {
         beenReadDiv.textContent = `This book has ${book.beenRead?"been read":"not been read"}`;
         bookCard.appendChild(beenReadDiv);
 
+        const toggleReadButton = document.createElement("button");
+        toggleReadButton.textContent = book.beenRead ? "Unread" : "Read";
+        toggleReadButton.addEventListener("click", ()=>{
+            book.toggleBeenRead();
+            displayLibrary();
+        });
+        bookCard.appendChild(toggleReadButton);
+        
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.addEventListener("click", ()=>{
