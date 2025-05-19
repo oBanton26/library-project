@@ -38,6 +38,15 @@ function displayLibrary () {
         beenReadDiv.textContent = `This book has ${book.beenRead?"been read":"not been read"}`;
         bookCard.appendChild(beenReadDiv);
 
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", ()=>{
+            const index = myLibrary.indexOf(book);
+            myLibrary.splice(index, 1);
+            displayLibrary();
+        });
+        bookCard.appendChild(removeButton);
+
         libraryContainer.appendChild(bookCard);
     }
 }
