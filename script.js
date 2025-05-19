@@ -17,6 +17,7 @@ const libraryContainer = document.querySelector(".library-container");
 
 function displayLibrary () {
     cleanDisplay();
+
     for (let book of myLibrary) {
         const bookCard = document.createElement("div");
         bookCard.setAttribute("class", "card");
@@ -51,10 +52,6 @@ newBookButton.addEventListener("click", function(){
     dialog.showModal();
 });
 
-const addBookButton = document.querySelector("form button");
-addBookButton.addEventListener("click", ()=>{
-    dialog.close();
-})
 
 const newBookForm = document.querySelector("form");
 newBookForm.addEventListener("submit", e=>{
@@ -66,4 +63,6 @@ newBookForm.addEventListener("submit", e=>{
     let beenReadInputed = formData.get("beenRead");
     addBookToLibrary(titleInputed, authorInputed, nbOfPagesInputed, beenReadInputed);
     displayLibrary();
+    newBookForm.reset();
+    dialog.close();
 });
